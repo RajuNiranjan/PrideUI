@@ -9,7 +9,7 @@ const PostCard = (props) => {
         <div className="mt-2 flex flex-col justify-center items-center gap-2">
           <h1 className="capitalize font-bold">{props.title}</h1>
           <p className="capitalize">{props.desc}</p>
-          <Link href="/">Read More</Link>
+          <Link href="/blog/post">Read More</Link>
         </div>
       </div>
     </div>

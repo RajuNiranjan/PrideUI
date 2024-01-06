@@ -1,7 +1,7 @@
 import React from "react";
 
-const page = () => {
-  return <div>dynamic blog page</div>;
+const SinglePostPage = () => {
+  return <div>single post page</div>;
 };
 
-export default page;
+export default SinglePostPage;
