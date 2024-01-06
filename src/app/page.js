@@ -1,5 +1,19 @@
+import SampleLayout from "@/components/sampleLayout/SampleLayout";
 import Image from "next/image";
+import React from "react";
 
-export default function Home() {
-  return <h1>Home page</h1>;
-}
+const Home = () => {
+  return (
+    <SampleLayout
+      heading="Creative Thoughts Agency"
+      desc=" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora,
+          sapiente."
+      rightImg="/hero.gif"
+      img="/brands.png"
+      btn1="Learn more"
+      btn2="Contact"
+    />
+  );
+};
+
+export default Home;
