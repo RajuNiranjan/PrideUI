@@ -1,9 +1,17 @@
+"use client";
+
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import Image from "next/image";
 import React from "react";
 
-const page = () => {
+const Contact = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log("button is clicked");
+  };
+
+  console.log("it works here");
   return (
     <div className="flex justify-between items-center gap-3 p-10">
       <div className="flex-1">
@@ -20,10 +28,10 @@ const page = () => {
           id=""
           cols="30"
           rows="10"></textarea>
-        <Button btnName="send" />
+        <Button onClick={handleClick} btnName="send" />
       </form>
     </div>
   );
 };
 
-export default page;
+export default Contact;
