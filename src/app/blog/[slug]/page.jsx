@@ -1,6 +1,6 @@
 import React from "react";
 
-const SinglePostPage = () => {
+const SinglePostPage = async ({ params }) => {
   return (
     <div className="flex  p-10 ">
       <div className="flex-1">
@@ -31,10 +31,10 @@ const SinglePostPage = () => {
         </div>
         <div className="mt-5">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum iure
-            harum consequatur culpa dignissimos sequi. Reiciendis suscipit,
-            earum temporibus recusandae possimus adipisci doloremque ipsa magni
-            itaque officia alias unde voluptates?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+            sapiente eos exercitationem magni qui alias aliquam tempora,
+            quisquam accusantium nulla sit architecto, aperiam neque atque,
+            dolorem doloremque quas cupiditate sint.
           </p>
         </div>
       </div>
