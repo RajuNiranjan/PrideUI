@@ -41,7 +41,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex justify-center gap-4 items-center flex-col h-screen">
+    <div className="flex flex-col gap-6">
       <div className="text-center">
         <h1 className="text-2xl md:text-4xl font-bold">
           Explore Our Categories
@@ -50,51 +50,53 @@ const Home = () => {
           Browse through our wide range of product categories.
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 top-10">
-        {currentItems.map((item) => (
-          <CategorieCard
-            key={item.id}
-            image={item.image}
-            title={item.title}
-            description={item.description}
-          />
-        ))}
-      </div>
-      <div className="my-5">
-        <Pagination>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                className="cursor-pointer"
-                onClick={handlePreviousPage}
-              />
-            </PaginationItem>
-            {[...Array(endPage - startPage + 1)].map((_, index) => (
-              <PaginationItem key={startPage + index}>
-                <PaginationLink
-                  onClick={() => setCurrentPage(startPage + index)}
-                  className={
-                    currentPage === startPage + index
-                      ? "bg-black cursor-pointer text-white"
-                      : " cursor-pointer"
-                  }>
-                  {startPage + index}
-                </PaginationLink>
-              </PaginationItem>
-            ))}
-            {endPage < totalPages && (
+      <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 top-10">
+          {currentItems.map((item) => (
+            <CategorieCard
+              key={item.id}
+              image={item.image}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
+        </div>
+        <div className="my-5">
+          <Pagination>
+            <PaginationContent>
               <PaginationItem>
-                <PaginationEllipsis />
+                <PaginationPrevious
+                  className="cursor-pointer"
+                  onClick={handlePreviousPage}
+                />
               </PaginationItem>
-            )}
-            <PaginationItem>
-              <PaginationNext
-                className="cursor-pointer"
-                onClick={handleNextPage}
-              />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
+              {[...Array(endPage - startPage + 1)].map((_, index) => (
+                <PaginationItem key={startPage + index}>
+                  <PaginationLink
+                    onClick={() => setCurrentPage(startPage + index)}
+                    className={
+                      currentPage === startPage + index
+                        ? "bg-black cursor-pointer text-white"
+                        : " cursor-pointer"
+                    }>
+                    {startPage + index}
+                  </PaginationLink>
+                </PaginationItem>
+              ))}
+              {endPage < totalPages && (
+                <PaginationItem>
+                  <PaginationEllipsis />
+                </PaginationItem>
+              )}
+              <PaginationItem>
+                <PaginationNext
+                  className="cursor-pointer"
+                  onClick={handleNextPage}
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
       </div>
     </div>
   );

@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['via.placeholder.com'],
-  }
+    domains: ["images.pexels.com"],
+  },
 };
 
 export default nextConfig;
