@@ -50,7 +50,7 @@ const Home = () => {
           Browse through our wide range of product categories.
         </p>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex justify-center items-center flex-col gap-4">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 top-10">
           {currentItems.map((item) => (
             <CategorieCard

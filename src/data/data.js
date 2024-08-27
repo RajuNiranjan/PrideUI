@@ -4,8 +4,7 @@ export const CategoriesData = [
     image:
       "https://images.pexels.com/photos/792345/pexels-photo-792345.jpeg?auto=compress&cs=tinysrgb&w=400",
     title: "Electronics",
-    description:
-      "Find the latest and greatest in electronics, from TVs to laptops.",
+    description: "Find the latest and greatest in electronics.",
   },
   {
     id: 2,
