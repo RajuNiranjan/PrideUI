@@ -40,8 +40,8 @@ const Home = () => {
   return (
     <div className='flex justify-center gap-4 items-center flex-col h-screen'>
       <div className='text-center'>
-        <h1 className=' text-4xl font-bold'>Explore Our Categories</h1>
-        <p className='text-gray-500 text-sm'>Browse through our wide range of product categories.</p>
+        <h1 className='text-2xl md:text-4xl font-bold'>Explore Our Categories</h1>
+        <p className='text-xs text-gray-500 md:text-sm'>Browse through our wide range of product categories.</p>
       </div>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-4 top-10'>
         {currentItems.map(item => (
