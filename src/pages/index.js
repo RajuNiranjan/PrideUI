@@ -51,7 +51,7 @@ const Home = () => {
             We use an agile approach to test assumptions and connect with the need  of your audience early and often.
           </p>
         </div>
-        <small className="text-blue-500 cursor-pointer">See all</small>
+        <small className="text-xs text-blue-500 cursor-pointer">See all</small>
       </div>
       <div className="flex justify-center items-center flex-col gap-4">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 top-10">

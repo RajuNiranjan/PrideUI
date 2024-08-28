@@ -30,7 +30,7 @@ const CategorieCard = ({ category, apps, description }) => {
       <hr />
       <CardFooter className="flex flex-col md:flex-row md:justify-between md:items-center p-0 gap-1 h-[30%]">
         <p className="text-xs md:text-lg text-green-500 ">{apps} Apps</p>
-        <Button className="h-6 md:h-8  text-xs md:text-sm p-1 md:p-2  rounded-full flex justify-center items-center gap-2">
+        <Button className="h-6 md:h-8  text-xs md:text-sm p-2 md:p-2  rounded-full flex justify-center items-center gap-2">
           Explore more <MoveRight size={16} />
         </Button>
       </CardFooter>
