@@ -42,22 +42,26 @@ const Home = () => {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="text-center">
-        <h1 className="text-2xl md:text-4xl font-bold">
-          Explore Our Categories
-        </h1>
-        <p className="text-xs text-gray-500 md:text-sm">
-          Browse through our wide range of product categories.
-        </p>
+      <div className="flex flex-col sm:flex-row justify-between items-end mb-10  md:px-20">
+        <div>
+          <h1 className="text-2xl md:text-4xl font-bold">
+            Top shopigy collections
+          </h1>
+          <p className="text-xs text-gray-500 md:text-sm">
+            We use an agile approach to test assumptions and connect with the need  of your audience early and often.
+          </p>
+        </div>
+        <small className="text-blue-500 cursor-pointer">See all</small>
       </div>
       <div className="flex justify-center items-center flex-col gap-4">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 top-10">
           {currentItems.map((item) => (
             <CategorieCard
               key={item.id}
-              image={item.image}
-              title={item.title}
+              category={item.category}
+              apps={item.apps}
               description={item.description}
+
             />
           ))}
         </div>
