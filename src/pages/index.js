@@ -65,41 +65,89 @@ const Home = () => {
             />
           ))}
         </div>
-        <div className="my-5">
-          <Pagination>
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious
-                  className="cursor-pointer"
-                  onClick={handlePreviousPage}
-                />
-              </PaginationItem>
-              {[...Array(endPage - startPage + 1)].map((_, index) => (
-                <PaginationItem key={startPage + index}>
-                  <PaginationLink
-                    onClick={() => setCurrentPage(startPage + index)}
-                    className={
-                      currentPage === startPage + index
-                        ? "bg-black cursor-pointer text-white"
-                        : " cursor-pointer"
-                    }>
-                    {startPage + index}
-                  </PaginationLink>
-                </PaginationItem>
-              ))}
-              {endPage < totalPages && (
+        <div className="my-5 w-full">
+          <div className=" md:hidden">
+            <Pagination>
+              <PaginationContent>
                 <PaginationItem>
-                  <PaginationEllipsis />
+                  <PaginationPrevious
+                    className="cursor-pointer"
+                    onClick={handlePreviousPage}
+                  />
                 </PaginationItem>
-              )}
-              <PaginationItem>
-                <PaginationNext
-                  className="cursor-pointer"
-                  onClick={handleNextPage}
-                />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+                {[...Array(endPage - startPage + 1)].map((_, index) => (
+                  <PaginationItem key={startPage + index}>
+                    <PaginationLink
+                      onClick={() => setCurrentPage(startPage + index)}
+                      className={
+                        currentPage === startPage + index
+                          ? "bg-black cursor-pointer text-white"
+                          : " cursor-pointer"
+                      }>
+                      {startPage + index}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
+                {endPage < totalPages && (
+                  <PaginationItem>
+                    <PaginationEllipsis />
+                  </PaginationItem>
+                )}
+                <PaginationItem>
+                  <PaginationNext
+                    className="cursor-pointer"
+                    onClick={handleNextPage}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
+          <div className="w-full hidden md:flex justify-between items-center border p-4">
+            <div>
+              <p>Showing <span>{(currentPage - 1) * ITEMS_PER_PAGE + 1} - {(currentPage - 1) * ITEMS_PER_PAGE + ITEMS_PER_PAGE} of {CategoriesData.length}</span>
+              </p>
+            </div>
+            <div className="flex gap-2 items-center">
+              {/* <PaginationItem> */}
+              <PaginationPrevious
+                className="cursor-pointer border"
+                onClick={handlePreviousPage}
+              />
+              {/* </PaginationItem> */}
+              {/* <PaginationItem> */}
+              <PaginationNext
+                className="cursor-pointer border"
+                onClick={handleNextPage}
+              />
+              {/* </PaginationItem> */}
+            </div>
+            <div>
+              <Pagination>
+                <PaginationContent>
+
+                  {[...Array(endPage - startPage + 1)].map((_, index) => (
+                    <PaginationItem key={startPage + index}>
+                      <PaginationLink
+                        onClick={() => setCurrentPage(startPage + index)}
+                        className={
+                          currentPage === startPage + index
+                            ? "bg-black cursor-pointer text-white"
+                            : " cursor-pointer"
+                        }>
+                        {startPage + index}
+                      </PaginationLink>
+                    </PaginationItem>
+                  ))}
+                  {/* {endPage < totalPages && (
+                  <PaginationItem>
+                    <PaginationEllipsis />
+                  </PaginationItem>
+                )} */}
+
+                </PaginationContent>
+              </Pagination>
+            </div>
+          </div>
         </div>
       </div>
     </div>
