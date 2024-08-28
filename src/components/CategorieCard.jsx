@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const CategorieCard = ({ title, image, description }) => {
   return (
-    <Card className="w-full flex flex-col gap-2 h-[200px]  max-w-[300px] sm:h-[300px] overflow-hidden  hover:shadow-xl transition-all duration-200 space-y-2">
+    <Card className="w-full flex flex-col gap-2 h-[220px]  max-w-[300px] sm:h-[300px] overflow-hidden  hover:shadow-xl transition-all duration-200 space-y-2">
       <CardContent className=" h-max sm:h-[70%]  p-0 ">
         <Image
           width={500}
