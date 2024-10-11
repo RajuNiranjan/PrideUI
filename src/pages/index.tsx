@@ -1,49 +1,41 @@
-import React from "react";
-import BoxReveal from "@/components/ui/box-reveal";
 import JoinNowDialog from "@/components/custom/Authentication/JoinNowDialog";
+import BoxReveal from "@/components/ui/box-reveal";
+import React from "react";
 
 const HomeScreen = () => {
   return (
-    <div className="w-full h-screen">
+    <div className="h-screen">
       <div className="h-[10%] flex justify-between items-center px-10">
         <div>
-          <h1 className="font-bold text-xl">PRIDE COMMUNITY</h1>
+          <h1 className="font-bold">PrideConnect</h1>
         </div>
         <div>
           <JoinNowDialog />
         </div>
       </div>
-      <div className="h-[60%] flex items-center ">
-        <div className="w-[50%]  h-full flex justify-center items-center">
-          <div className="flex flex-col gap-4">
+      <div className="h-[60%] grid grid-cols-1 md:grid-cols-2 ">
+        <div className="h-full flex justify-center items-center">
+          <div>
             <div>
               <BoxReveal boxColor={"red"} duration={0.5}>
-                <p className="text-[3.5rem] font-semibold">
-                  WELCOME<span className="text-[red]">!</span>
-                </p>
+                <h1 className="font-bold text-[3.5rem]">Express yourself</h1>
               </BoxReveal>
               <BoxReveal boxColor={"red"} duration={0.5}>
-                <p className="text-[3.5rem] font-semibold">
-                  Here <span className="text-[red]">You Are</span>
-                </p>
+                <h1 className="font-semibold text-[3.5rem]">
+                  <span className="text-red-500">&</span>
+                  <span> connect with</span>
+                </h1>
               </BoxReveal>
               <BoxReveal boxColor={"red"} duration={0.5}>
-                <h2 className="mt-[.5rem] text-[1rem]">
-                  You Are{" "}
-                  <span className="text-[red]">
-                    Sace, Seen, and Celebrated.
-                  </span>
-                </h2>
+                <p>connect openly and Authentically with our community.</p>
               </BoxReveal>
             </div>
-            <BoxReveal boxColor={"red"} duration={0.5}>
+            <div>
               <JoinNowDialog />
-            </BoxReveal>
+            </div>
           </div>
         </div>
-        <div className="w-[50%] h-full flex justify-center items-center">
-          {/* <div className="w-[450px] h-[200px]  shadow-xl shadow-red-500 rounded-xl "></div> */}
-        </div>
+        <div className="h-full flex justify-center items-center">RIGHT</div>
       </div>
       <div className="h-[30%] bg-red-500"></div>
     </div>

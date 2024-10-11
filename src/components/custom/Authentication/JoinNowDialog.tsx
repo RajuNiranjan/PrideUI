@@ -8,21 +8,51 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import AuthenticationTabs from "./AuthenticationTabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import LogInCard from "./LogInCard";
+import SingUpCard from "./SingUpCard";
 
 const JoinNowDialog = () => {
   return (
     <Dialog>
-      <DialogTrigger>
-        <Button className={`rounded-full  bg-red-500 font-bold`}>
-          Join Now
+      <DialogTrigger asChild>
+        <Button
+          type="button"
+          className="rounded-full  bg-red-500 hover:bg-red-600 transition-all duration-300"
+        >
+          JOIN NOW
         </Button>
       </DialogTrigger>
-      <DialogContent className="w-full h-[600px]  min-w-[315px] max-w-[650px]  ">
+
+      <DialogContent className="w-full max-w-[650px]">
         <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
+          <DialogTitle>
+            <VisuallyHidden></VisuallyHidden>
+          </DialogTitle>
           <DialogDescription>
-            <AuthenticationTabs />
+            <Tabs defaultValue="logIn" className="w-full">
+              <TabsList className="w-full bg-transparent">
+                <TabsTrigger
+                  value="logIn"
+                  className="w-full data-[state=active]:bg-red-500 data-[state=active]:text-white font-bold transition-all duration-200 rounded-full"
+                >
+                  LOG IN
+                </TabsTrigger>
+                <TabsTrigger
+                  value="signUp"
+                  className="w-full data-[state=active]:bg-red-500 data-[state=active]:text-white font-bold transition-all duration-200 rounded-full"
+                >
+                  SIGN UP
+                </TabsTrigger>
+              </TabsList>
+              <TabsContent value="logIn">
+                <LogInCard />
+              </TabsContent>
+              <TabsContent value="signUp">
+                <SingUpCard />
+              </TabsContent>
+            </Tabs>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>

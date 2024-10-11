@@ -1,4 +1,4 @@
-export const GeNDERS = [
+export const GENDERS = [
   "Lesbian",
   "Gay",
   "Bisexual",
