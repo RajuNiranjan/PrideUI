@@ -7,6 +7,7 @@ import {
 } from "@/redux/reducers/auth.reducer";
 import axios from "axios";
 import { SignUpForm } from "@/components/custom/Authentication/SingUpCard";
+import { LogInForm } from "@/components/custom/Authentication/LogInCard";
 
 export const useAuth = () => {
   const dispatch = useDispatch();
@@ -54,5 +55,23 @@ export const useAuth = () => {
     }
   };
 
-  return { register };
+  const login = async ({ usernameOremail, password }: LogInForm) => {
+    if (!usernameOremail || !password) {
+      console.log("all fields are required");
+    }
+    dispatch(authPending());
+    try {
+      const res = await axios.post(`${API_URI}/api/authentication/login`, {
+        usernameOremail,
+        password,
+      });
+      dispatch(authFulFilled());
+      localStorage.setItem("token", res.data.token);
+    } catch (error) {
+      console.log(error);
+      dispatch(authRejected((error as Error).message));
+    }
+  };
+
+  return { register, login };
 };

@@ -5,9 +5,10 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import EyeOff from "@/asserts/svg/eyeOff.svg";
 import EyeOpen from "@/asserts/svg/eyeOpen.svg";
 import Image from "next/image";
+import { useAuth } from "@/hooks/useAuth.hook";
 
-interface LogInForm {
-  userNameOremail: string;
+export interface LogInForm {
+  usernameOremail: string;
   password: string;
 }
 
@@ -15,9 +16,11 @@ const LogInCard = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const [formData, setFormData] = useState<LogInForm>({
-    userNameOremail: "",
+    usernameOremail: "",
     password: "",
   });
+
+  const { login } = useAuth();
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -27,9 +30,9 @@ const LogInCard = () => {
     }));
   };
 
-  const handleSumbitForm = (e: FormEvent<HTMLFormElement>) => {
+  const handleSumbitForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Login form", formData);
+    await login(formData);
   };
 
   return (
@@ -39,8 +42,8 @@ const LogInCard = () => {
           <Label>USER NAME / EMAIL</Label>
           <Input
             type="text"
-            name="userNameOremail"
-            value={formData.userNameOremail}
+            name="usernameOremail"
+            value={formData.usernameOremail}
             onChange={handleChangeInput}
             placeholder="john@deo.com"
             className="rounded-full"
