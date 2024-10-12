@@ -34,7 +34,7 @@ const LogInCard = () => {
 
   return (
     <div>
-      <form onSubmit={handleSumbitForm} className="space-y-4">
+      <form onSubmit={handleSumbitForm} className="space-y-4 ">
         <div className="space-y-2">
           <Label>USER NAME / EMAIL</Label>
           <Input
@@ -83,8 +83,7 @@ const LogInCard = () => {
         <div className="w-full">
           <Button
             type="submit"
-            className="bg-red-500 w-full rounded-full hover:bg-red-600 transition-all duration-200"
-          >
+            className="bg-red-500 w-full rounded-full hover:bg-red-600 transition-all duration-200">
             LOG IN
           </Button>
         </div>

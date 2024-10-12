@@ -19,13 +19,12 @@ const JoinNowDialog = () => {
       <DialogTrigger asChild>
         <Button
           type="button"
-          className="rounded-full  bg-red-500 hover:bg-red-600 transition-all duration-300"
-        >
+          className="rounded-full  bg-red-500 hover:bg-red-600 transition-all duration-300">
           JOIN NOW
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="w-full max-w-[650px] h-full min-h-[580px]">
+      <DialogContent className="w-full max-w-[650px] h-full min-h-[580px] max-h-[580px] ">
         <DialogHeader>
           <DialogTitle>
             <VisuallyHidden></VisuallyHidden>
@@ -35,14 +34,12 @@ const JoinNowDialog = () => {
               <TabsList className="w-full bg-transparent">
                 <TabsTrigger
                   value="logIn"
-                  className="w-full h-10 data-[state=active]:bg-red-500 data-[state=active]:text-white font-bold transition-all duration-200 rounded-full"
-                >
+                  className="w-full h-10 data-[state=active]:bg-red-500 data-[state=active]:text-white font-bold transition-all duration-200 rounded-full">
                   LOG IN
                 </TabsTrigger>
                 <TabsTrigger
                   value="signUp"
-                  className="w-full h-10 data-[state=active]:bg-red-500 data-[state=active]:text-white font-bold transition-all duration-200 rounded-full"
-                >
+                  className="w-full h-10 data-[state=active]:bg-red-500 data-[state=active]:text-white font-bold transition-all duration-200 rounded-full">
                   SIGN UP
                 </TabsTrigger>
               </TabsList>
