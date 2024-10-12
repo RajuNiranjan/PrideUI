@@ -48,7 +48,7 @@ export const useAuth = () => {
       });
       console.log(res.data);
       localStorage.setItem("token", res.data.token);
-      dispatch(authFulFilled());
+      dispatch(authFulFilled(res.data.user));
     } catch (error) {
       console.log(error);
       dispatch(authRejected((error as Error).message));
@@ -65,7 +65,7 @@ export const useAuth = () => {
         usernameOremail,
         password,
       });
-      dispatch(authFulFilled());
+      dispatch(authFulFilled(res.data.user));
       localStorage.setItem("token", res.data.token);
     } catch (error) {
       console.log(error);

@@ -48,8 +48,9 @@ const authSlice = createSlice({
     authPending: (state) => {
       state.loading = true;
     },
-    authFulFilled: (state) => {
+    authFulFilled: (state, action: PayloadAction<User>) => {
       state.loading = false;
+      state.user = action.payload;
     },
     authRejected: (state, action: PayloadAction<string>) => {
       state.loading = false;
