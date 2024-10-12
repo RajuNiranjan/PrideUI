@@ -1,12 +1,45 @@
-import { store } from "@/redux/store";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { fetchUser } from "@/redux/reducers/auth.reducer";
+import { AppDispatch, store } from "@/redux/store";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { Provider } from "react-redux";
+import { useEffect } from "react";
+import { Provider, useDispatch } from "react-redux";
+import { FC } from "react";
 
-export default function App({ Component, pageProps }: AppProps) {
+const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <AppContent Component={Component} pageProps={pageProps} />
     </Provider>
   );
-}
+};
+
+export default App;
+
+type AppContentProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Component: any;
+  pageProps: any;
+};
+
+const AppContent: FC<AppContentProps> = ({
+  Component,
+  pageProps,
+}: AppContentProps) => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    const token =
+      typeof window !== "undefined" ? localStorage.getItem("token") : null;
+    if (token) {
+      dispatch(fetchUser(token));
+    }
+  }, [dispatch]);
+
+  return (
+    <>
+      <Component {...pageProps} />
+    </>
+  );
+};

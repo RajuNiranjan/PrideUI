@@ -2,10 +2,16 @@ import JoinNowDialog from "@/components/custom/Authentication/JoinNowDialog";
 import BoxReveal from "@/components/ui/box-reveal";
 import Image from "next/image";
 import React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 // BACKGOUND IMAGE = 'http://res.cloudinary.com/dlgewrscf/image/upload/v1728655934/rhnnpswb1jwyo9bazknh.jpg'
 
 const HomeScreen = () => {
+  const { user } = useSelector((state: RootState) => state.auth);
+
+  console.log("user,", user);
+
   return (
     <div className="h-screen ">
       <div className="h-[10%] flex justify-between items-center px-10">

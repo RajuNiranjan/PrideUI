@@ -31,20 +31,14 @@ const initialState: AuthState = {
   error: null,
 };
 
-export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
-  try {
-    const token = localStorage.getItem("token");
-    const { API_URI } = ENV_VAR;
-
-    const res = await axios.get(`${API_URI}/api/user/me`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return res.data;
-  } catch (error) {
-    console.log(error);
-  }
+export const fetchUser = createAsyncThunk("user/fetchUser", async (token) => {
+  const { API_URI } = ENV_VAR;
+  const res = await axios.get(`${API_URI}/api/user/me`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res.data;
 });
 
 const authSlice = createSlice({
@@ -68,16 +62,13 @@ const authSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchUser.fulfilled, (state, action: PayloadAction<User>) => {
-        state.loading = false;
         state.user = action.payload;
+        state.loading = false;
       })
-      .addCase(
-        fetchUser.rejected,
-        (state, action: PayloadAction<string | any>) => {
-          state.loading = false;
-          state.error = action.payload;
-        }
-      );
+      .addCase(fetchUser.rejected, (state, action: PayloadAction<string>) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
   },
 });
 

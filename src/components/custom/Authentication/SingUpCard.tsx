@@ -21,8 +21,9 @@ import { Calendar as CalendarIcon } from "lucide-react";
 import EyeOff from "@/asserts/svg/eyeOff.svg";
 import EyeOpen from "@/asserts/svg/eyeOpen.svg";
 import Image from "next/image";
+import { useAuth } from "@/hooks/useAuth.hook";
 
-interface SignUpForm {
+export interface SignUpForm {
   userName: string;
   email: string;
   password: string;
@@ -44,6 +45,8 @@ const SingUpCard = () => {
     acceptTerms: false,
     gender: "",
   });
+
+  const { register } = useAuth();
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
@@ -86,9 +89,9 @@ const SingUpCard = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+    await register(formData);
   };
 
   return (
@@ -125,8 +128,7 @@ const SingUpCard = () => {
                   <Button
                     type="button"
                     variant={"outline"}
-                    className="rounded-full gap-2 text-red-500 w-full hover:bg-transparent"
-                  >
+                    className="rounded-full gap-2 text-red-500 w-full hover:bg-transparent">
                     <CalendarIcon className="h-4 w-4" />
                     {dob ? dob.toDateString() : "Select Date"}
                   </Button>
@@ -248,8 +250,7 @@ const SingUpCard = () => {
         <div className="w-full">
           <Button
             type="submit"
-            className="w-full rounded-full bg-red-500 hover:bg-red-600 transition-all duration-200"
-          >
+            className="w-full rounded-full bg-red-500 hover:bg-red-600 transition-all duration-200">
             JOIN NOW
           </Button>
         </div>
