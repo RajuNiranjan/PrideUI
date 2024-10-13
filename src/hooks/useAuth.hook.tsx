@@ -8,10 +8,12 @@ import {
 import axios from "axios";
 import { SignUpForm } from "@/components/custom/Authentication/SingUpCard";
 import { LogInForm } from "@/components/custom/Authentication/LogInCard";
+import { useRouter } from "next/navigation";
 
 export const useAuth = () => {
   const dispatch = useDispatch();
   const { API_URI } = ENV_VAR;
+  const router = useRouter();
 
   const register = async ({
     userName,
@@ -49,6 +51,7 @@ export const useAuth = () => {
       console.log(res.data);
       localStorage.setItem("token", res.data.token);
       dispatch(authFulFilled(res.data.user));
+      router.push(`/me/${res.data.user._id}/profile`);
     } catch (error) {
       console.log(error);
       dispatch(authRejected((error as Error).message));
@@ -67,6 +70,8 @@ export const useAuth = () => {
       });
       dispatch(authFulFilled(res.data.user));
       localStorage.setItem("token", res.data.token);
+      router.push(`/me/${res.data.user._id}/profile`);
+      console.log(res.data.user._id);
     } catch (error) {
       console.log(error);
       dispatch(authRejected((error as Error).message));
