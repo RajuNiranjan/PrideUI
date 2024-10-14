@@ -42,7 +42,7 @@ const AppContent: FC<AppContentProps> = ({
 
     // Redirect logic
     if (user) {
-      router.push(`/me/${user._id}/profile`);
+      router.push(`/${user.userName}`);
     } else if (!token) {
       router.push("/");
     }

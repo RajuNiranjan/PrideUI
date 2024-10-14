@@ -51,7 +51,7 @@ export const useAuth = () => {
       console.log(res.data);
       localStorage.setItem("token", res.data.token);
       dispatch(authFulFilled(res.data.user));
-      router.push(`/me/${res.data.user._id}/profile`);
+      router.push(`/${res.data.user.userName}`);
     } catch (error) {
       console.log(error);
       dispatch(authRejected((error as Error).message));
@@ -70,7 +70,7 @@ export const useAuth = () => {
       });
       dispatch(authFulFilled(res.data.user));
       localStorage.setItem("token", res.data.token);
-      router.push(`/me/${res.data.user._id}/profile`);
+      router.push(`/${res.data.user.userName}`);
       console.log(res.data.user._id);
     } catch (error) {
       console.log(error);
